@@ -8,14 +8,17 @@ print('hello world')
 
 label = tkinter.Label(text='i am a label1,s sfsdf')
 
-label.pack()
+label.pack(side='left')
+label.config(text='new text')
+
+button = tkinter.Button(text='my button')
 
 
-def all_aboard(a, *args, **kw):
-    print(a, args, kw)
+# def all_aboard(a, *args, **kw):
+#     print(a, args, kw)
 
 
-all_aboard(4, 7, 3, 0, x=10, y=64, )
+# all_aboard(4, 7, 3, 0, string_test='boy', x=10, y=64, girl=1234, )
 
 
 window.mainloop()
