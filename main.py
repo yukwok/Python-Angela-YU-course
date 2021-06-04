@@ -1,6 +1,7 @@
 # Password manager start
 
 from tkinter import *
+from tkinter import messagebox
 from PIL import ImageTk, Image
 
 
@@ -15,11 +16,16 @@ def save():
     email = email_entry.get()
     password = password_entry.get()
 
-    with open("data.txt", "a") as data_file:
-        data_file.write(f"{website} | {email} | {password}\n")
+    is_ok = messagebox.askokcancel(title=website, message=f"These are the details:\n Email: {email}\nPassword: {password} \n\nIs it OK to save?")
 
-    website_entry.delete(0, END)
-    password_entry.delete(0, END)
+    print(is_ok)
+
+    if is_ok:
+        with open("data.txt", "a") as data_file:
+            data_file.write(f"{website} | {email} | {password}\n")
+            website_entry.delete(0, END)
+            password_entry.delete(0, END)
+
 
 
 
